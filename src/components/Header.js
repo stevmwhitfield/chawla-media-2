@@ -90,8 +90,8 @@ const Header = () => {
   } else {
     // need to style
     return (
-      <header id="header">
-        <div className="logo-container">
+      <header id={styles.header}>
+        <div className={styles.logoContainer}>
           <Link to="/">
             <img src={logo} alt="Chawla Media" />
           </Link>
@@ -99,19 +99,49 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link
+                activeClassName={styles.navLinkActive}
+                className={styles.navLink}
+                to="/"
+              >
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/portfolio">Portfolio</Link>
+              <Link
+                activeClassName={styles.navLinkActive}
+                className={styles.navLink}
+                to="/portfolio"
+              >
+                Portfolio
+              </Link>
             </li>
             <li>
-              <Link to="/booking">Booking</Link>
+              <Link
+                activeClassName={styles.navLinkActive}
+                className={styles.navLink}
+                to="/booking"
+              >
+                Booking
+              </Link>
             </li>
             <li>
-              <Link to="/faq">FAQ</Link>
+              <Link
+                activeClassName={styles.navLinkActive}
+                className={styles.navLink}
+                to="/faq"
+              >
+                FAQ
+              </Link>
             </li>
             <li>
-              <Link to="/about-me">About Me</Link>
+              <Link
+                activeClassName={styles.navLinkActive}
+                className={styles.navLink}
+                to="/about-me"
+              >
+                About Me
+              </Link>
             </li>
           </ul>
         </nav>

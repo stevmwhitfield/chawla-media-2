@@ -9,3 +9,9 @@
   padding-top: 12rem;
   flex-grow: 1;
 }
+
+@media screen and (min-width: 30em) {
+  .main-wrapper {
+    padding-top: 15.2rem;
+  }
+}
