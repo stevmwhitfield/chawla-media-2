@@ -52,11 +52,6 @@ nav {
     list-style-type: none;
     background: #000;
 
-    &.nav-hidden {
-      visibility: hidden;
-      opacity: 0;
-    }
-
     li {
       padding: 0.75em 0;
       text-align: center;
@@ -66,6 +61,11 @@ nav {
       }
     }
   }
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .nav-link {

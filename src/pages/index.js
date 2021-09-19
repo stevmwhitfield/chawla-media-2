@@ -1,30 +1,44 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useState, useEffect } from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
-import * as styles from "../styles/base.module.scss";
+import ImageGallery from "../components/ImageGallery";
 
-export default function Home() {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
+import baseStyles from "../styles/base.module.scss";
+import styles from "../styles/Home.module.scss";
 
-  const checkSize = () => {
-    setWindowSize(window.innerWidth);
-  };
+export const query = graphql`
+  query {
+    strapiImageGalleries(Name: { eq: "Home" }) {
+      Name
+      Images {
+        name
+        alternativeText
+        localFile {
+          childImageSharp {
+            gatsbyImageData(
+              breakpoints: [400, 650, 850, 1250]
+              placeholder: NONE
+            )
+          }
+        }
+      }
+    }
+  }
+`;
 
-  useEffect(() => {
-    window.addEventListener("resize", checkSize);
-    return () => {
-      console.log("cleanup");
-      window.removeEventListener("resize", checkSize);
-    };
-  }, []);
-
+const Home = props => {
   return (
     <Layout>
       <Helmet title="Photography, Editing, and Content Creation | Chawla Media" />
-      <h1>Home Page</h1>
-      <p>{windowSize} PX</p>
+      <main>
+        <h1>Sunishth Chawla</h1>
+        <h3>— Photographer | Editor | Creator —</h3>
+        <ImageGallery props={props} />
+      </main>
     </Layout>
   );
-}
+};
+
+export default Home;

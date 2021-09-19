@@ -1,27 +1,44 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "gatsby";
+
 import logo from "../assets/chawla-media.png";
 import * as styles from "../styles/Header.module.scss";
 
 const Header = () => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isScrollDown, setIsScrollDown] = useState(false);
 
   const checkSize = () => {
     setWindowSize(window.innerWidth);
   };
 
+  const checkScroll = e => {
+    if (e.deltaY > 0) {
+      setIsScrollDown(false);
+    }
+    if (e.deltaY <= 0) {
+      setIsScrollDown(true);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("resize", checkSize);
     return () => {
-      console.log("cleanup");
       window.removeEventListener("resize", checkSize);
     };
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("wheel", checkScroll);
+    return () => {
+      window.removeEventListener("wheel", checkScroll);
+    };
+  });
+
   const navBtnHandler = () => {
-    setIsNavOpen(!isNavOpen);
+    setIsMobileNavOpen(!isMobileNavOpen);
   };
 
   if (windowSize < 480) {
@@ -33,11 +50,13 @@ const Header = () => {
           </Link>
         </div>
         <nav>
-          <ul className={isNavOpen ? null : styles.navHidden}>
+          <ul className={isMobileNavOpen ? null : styles.hidden}>
             <li>
               <Link
                 activeClassName={styles.navLinkActive}
-                className={isNavOpen ? styles.navLink : styles.navLinkHidden}
+                className={
+                  isMobileNavOpen ? styles.navLink : styles.navLinkHidden
+                }
                 to="/"
               >
                 Home
@@ -46,7 +65,9 @@ const Header = () => {
             <li>
               <Link
                 activeClassName={styles.navLinkActive}
-                className={isNavOpen ? styles.navLink : styles.navLinkHidden}
+                className={
+                  isMobileNavOpen ? styles.navLink : styles.navLinkHidden
+                }
                 to="/portfolio"
               >
                 Portfolio
@@ -55,7 +76,9 @@ const Header = () => {
             <li>
               <Link
                 activeClassName={styles.navLinkActive}
-                className={isNavOpen ? styles.navLink : styles.navLinkHidden}
+                className={
+                  isMobileNavOpen ? styles.navLink : styles.navLinkHidden
+                }
                 to="/booking"
               >
                 Booking
@@ -64,7 +87,9 @@ const Header = () => {
             <li>
               <Link
                 activeClassName={styles.navLinkActive}
-                className={isNavOpen ? styles.navLink : styles.navLinkHidden}
+                className={
+                  isMobileNavOpen ? styles.navLink : styles.navLinkHidden
+                }
                 to="/faq"
               >
                 FAQ
@@ -73,7 +98,9 @@ const Header = () => {
             <li>
               <Link
                 activeClassName={styles.navLinkActive}
-                className={isNavOpen ? styles.navLink : styles.navLinkHidden}
+                className={
+                  isMobileNavOpen ? styles.navLink : styles.navLinkHidden
+                }
                 to="/about-me"
               >
                 About Me
@@ -81,7 +108,7 @@ const Header = () => {
             </li>
           </ul>
           <button
-            className={isNavOpen ? styles.navBtnActive : styles.navBtn}
+            className={isMobileNavOpen ? styles.navBtnActive : styles.navBtn}
             onClick={navBtnHandler}
           ></button>
         </nav>
@@ -96,7 +123,7 @@ const Header = () => {
             <img src={logo} alt="Chawla Media" />
           </Link>
         </div>
-        <nav>
+        <nav className={!isScrollDown ? styles.hidden : null}>
           <ul>
             <li>
               <Link
