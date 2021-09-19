@@ -5,6 +5,22 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
-}
+  siteMetadata: {
+    title: "",
+    description: "",
+    author: "",
+  },
+  plugins: [
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: "http://localhost:1337",
+        queryLimit: 1000,
+        collectionTypes: [],
+        singleTypes: [],
+      },
+    },
+  ],
+};

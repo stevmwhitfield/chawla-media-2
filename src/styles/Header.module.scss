@@ -1,0 +1,95 @@
+#header {
+  width: 100%;
+  height: 6.4rem;
+  background: #000;
+  position: fixed;
+  z-index: 1000;
+}
+
+.logo-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 4.2rem;
+    width: auto;
+  }
+}
+
+nav {
+  height: 100%;
+  margin: 0 auto;
+  font-size: 2.1rem;
+  position: relative;
+
+  ul {
+    list-style-type: none;
+    background: #000;
+
+    &.nav-hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    li {
+      padding: 0.75em 0;
+      text-align: center;
+
+      &:last-of-type {
+        padding-bottom: 1em;
+      }
+    }
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.5;
+
+  &:hover {
+    color: #ccc;
+  }
+
+  &:active {
+    color: #666;
+  }
+}
+
+.nav-link-hidden {
+  visibility: 0;
+  opacity: 0;
+}
+
+.nav-link-active {
+  color: #999;
+}
+
+.nav-btn,
+.nav-btn-active {
+  background: #000;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 33%;
+  height: 3.2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-bottom-left-radius: 1.6rem;
+  border-bottom-right-radius: 1.6rem;
+  cursor: pointer;
+}
+
+.nav-btn {
+  background-image: url("../assets/arrow.svg");
+  background-size: 3.2rem;
+  transform: translate(-50%, -32rem);
+}
+
+.nav-btn-active {
+  background-image: url("../assets/close.svg");
+  background-size: 1.6rem;
+}
