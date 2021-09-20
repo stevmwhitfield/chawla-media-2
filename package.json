@@ -3,7 +3,7 @@
   "private": true,
   "description": "A Gatsby generated website for Chawla Media.",
   "version": "0.1.0",
-  "license": "0BSD",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "env-cmd -f .env gatsby develop",
@@ -11,6 +11,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "cms": "cd ../chawla-media-cms/ && npm run develop",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {

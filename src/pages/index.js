@@ -17,10 +17,7 @@ export const query = graphql`
         alternativeText
         localFile {
           childImageSharp {
-            gatsbyImageData(
-              breakpoints: [400, 650, 850, 1250]
-              placeholder: NONE
-            )
+            gatsbyImageData(breakpoints: [400, 650, 850], placeholder: NONE)
           }
         }
       }
