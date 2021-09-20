@@ -110,12 +110,13 @@ const Header = () => {
           <button
             className={isMobileNavOpen ? styles.navBtnActive : styles.navBtn}
             onClick={navBtnHandler}
-          ></button>
+          >
+            Toggle Navigation
+          </button>
         </nav>
       </header>
     );
   } else {
-    // need to style
     return (
       <header id={styles.header}>
         <div className={styles.logoContainer}>
@@ -123,7 +124,9 @@ const Header = () => {
             <img src={logo} alt="Chawla Media" />
           </Link>
         </div>
-        <nav className={!isScrollDown ? styles.hidden : null}>
+        {/* Hides nav when scrolling up --- Might remove */}
+        {/* <nav className={!isScrollDown ? styles.hidden : null}> */}
+        <nav>
           <ul>
             <li>
               <Link
