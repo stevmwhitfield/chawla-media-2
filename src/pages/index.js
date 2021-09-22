@@ -32,7 +32,6 @@ const Home = props => {
         <h1>Sunishth Chawla</h1>
         <h3>— Photographer | Editor | Creator —</h3>
         <ImageGallery props={props} />
-        <p>test</p>
       </main>
     </Layout>
   );
