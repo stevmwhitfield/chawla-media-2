@@ -1,0 +1,97 @@
+.card {
+  position: relative;
+  width: 90%;
+  max-width: 37.6rem;
+  height: 26rem;
+  background: transparent;
+  color: #fff;
+  margin-bottom: 3.2rem;
+  transition: all 0.5s;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: all 0.5s;
+  }
+
+  .content {
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.2rem;
+    display: grid;
+    grid-template-areas:
+      "title title"
+      "description description"
+      "link shoot";
+    transition: all 0.3s;
+
+    h1 {
+      grid-area: title;
+
+      width: 100%;
+      text-align: start;
+      font-size: 2.8rem;
+    }
+
+    p {
+      grid-area: description;
+
+      width: 100%;
+      font-size: 1.8rem;
+    }
+
+    a {
+      grid-area: link;
+      justify-self: start;
+      align-self: end;
+
+      width: fit-content;
+      height: fit-content;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 0.1rem;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 1.6rem;
+      padding: 0.25em 0.75em;
+
+      &:hover {
+        background: #fff;
+        color: #262626;
+      }
+    }
+
+    h3 {
+      grid-area: shoot;
+      justify-self: end;
+      align-self: end;
+
+      font-size: 1.8rem;
+      color: #fff;
+    }
+  }
+
+  &:hover {
+    img {
+      filter: brightness(0.5) grayscale(1);
+      border-radius: 1.6rem;
+    }
+
+    .content {
+      visibility: visible;
+      opacity: 100;
+    }
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .content {
+    padding: 2.4rem;
+  }
+}

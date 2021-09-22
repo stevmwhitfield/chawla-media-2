@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import Layout from "../components/Layout";
-import * as styles from "../styles/404.module.scss";
+import * as styles from "../styles/pages/404.module.scss";
 
 const NotFound = () => {
   return (

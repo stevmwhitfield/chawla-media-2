@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import * as styles from "../styles/ImageGallery.module.scss";
+import * as styles from "../styles/components/ImageGallery.module.scss";
 
 const ImageGallery = ({ props }) => {
   const images = props.data.strapiImageGalleries.Images.map(image => {

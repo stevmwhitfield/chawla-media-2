@@ -5,8 +5,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import ImageGallery from "../components/ImageGallery";
 
-import baseStyles from "../styles/base.module.scss";
-import styles from "../styles/Home.module.scss";
+import styles from "../styles/pages/Home.module.scss";
 
 export const query = graphql`
   query {

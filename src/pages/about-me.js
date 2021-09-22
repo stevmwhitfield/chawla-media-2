@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import baseStyles from "../styles/base.module.scss";
-import * as styles from "../styles/About.module.scss";
+import * as styles from "../styles/pages/About.module.scss";
+
 import Layout from "../components/Layout";
 import Img from "../assets/about-me/sunishth-chawla.jpg";
 

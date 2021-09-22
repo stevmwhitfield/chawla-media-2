@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "gatsby";
 
 import logo from "../assets/chawla-media.png";
-import * as styles from "../styles/Header.module.scss";
+import * as styles from "../styles/components/Header.module.scss";
 
 const Header = () => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
