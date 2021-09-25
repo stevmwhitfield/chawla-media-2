@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/Layout";
-import Card from "../components/Card";
+import PortfolioCard from "../components/PortfolioCard";
 
 import * as styles from "../styles/pages/Portfolio.module.scss";
 
@@ -37,7 +37,7 @@ const Portfolio = () => {
         <div className={styles.cardWrapper}>
           {data.allStrapiPortfolioCards.edges.map(edge => {
             return (
-              <Card
+              <PortfolioCard
                 title={edge.node.Title}
                 description={edge.node.Description}
                 photoshoot={edge.node.Photoshoot}

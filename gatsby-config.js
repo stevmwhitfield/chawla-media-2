@@ -29,7 +29,12 @@ module.exports = {
       options: {
         apiURL: "http://localhost:8082",
         queryLimit: 1000,
-        collectionTypes: ["image-galleries", "portfolio-cards"],
+        collectionTypes: [
+          "image-galleries",
+          "portfolio-cards",
+          "bookings",
+          "faqs",
+        ],
         singleTypes: [],
       },
     },
