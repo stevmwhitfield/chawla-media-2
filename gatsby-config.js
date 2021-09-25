@@ -27,7 +27,9 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: "http://localhost:8082",
+        apiURL: process.env.DEPLOY_URL
+          ? "https://chawla-media-strapi.herokuapp.com"
+          : "http://localhost:8082",
         queryLimit: 1000,
         collectionTypes: [
           "image-galleries",

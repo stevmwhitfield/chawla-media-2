@@ -69,4 +69,4 @@ yarn-error.log
 .yarn-integrity
 
 # Other
-plugins
+package-lock.json
