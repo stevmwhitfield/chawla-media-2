@@ -1,15 +1,20 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import ImageGallery from "../components/ImageGallery";
-
-import styles from "../styles/pages/Home.module.scss";
+import { Helmet } from "react-helmet";
 
 export const query = graphql`
-  query {
-    strapiImageGalleries(Name: { eq: "Home" }) {
+  query ($slug: String!) {
+    strapiPortfolioCards(slug: { eq: $slug }) {
+      slug
+      Title
+      Description
+      Photoshoot
+    }
+    strapiImageGalleries(slug: { eq: $slug }) {
+      slug
       Name
       Images {
         name
@@ -24,17 +29,19 @@ export const query = graphql`
   }
 `;
 
-const Home = props => {
+const Photoshoot = props => {
   return (
     <Layout>
-      <Helmet title="Photography, Editing, and Content Creation | Chawla Media" />
+      <Helmet
+        title={`${props.data.strapiPortfolioCards.Title} | Portfolio | Chawla Media`}
+      />
       <main>
-        <h1>Sunishth Chawla</h1>
-        <h3>— Photographer | Editor | Creator —</h3>
+        <h1>{props.data.strapiPortfolioCards.Title}</h1>
+        <h3>{props.data.strapiPortfolioCards.Description}</h3>
         <ImageGallery props={props} />
       </main>
     </Layout>
   );
 };
 
-export default Home;
+export default Photoshoot;

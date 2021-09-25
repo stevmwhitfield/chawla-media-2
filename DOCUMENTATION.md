@@ -8,6 +8,8 @@
 - Thumbnail -- image (376x260 px)
 - Description -- text (keep it brief; too much text can overflow the card)
 - Photoshoot -- choose the photoshoot type
+- slug -- the relative url (e.g. chawlamedia,com/portfolio/{slug})
+  - **NOTE:** The slug for the portfolio card and corresponding image gallery _must be exactly the same_.
 
 ### In Strapi:
 

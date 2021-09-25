@@ -11,7 +11,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "cms": "cd ../chawla-media-cms/ && npm run develop",
+    "cms": "cd ../backend/ && npm run develop",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {

@@ -13,6 +13,7 @@ const Portfolio = () => {
       allStrapiPortfolioCards {
         edges {
           node {
+            slug
             Title
             Description
             Photoshoot
@@ -41,6 +42,7 @@ const Portfolio = () => {
                 description={edge.node.Description}
                 photoshoot={edge.node.Photoshoot}
                 imgSrc={edge.node.Thumbnail.localFile.url}
+                slug={edge.node.slug}
               />
             );
           })}
