@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "gatsby";
-
+import { debounce } from "lodash";
 import logo from "../assets/chawla-media.png";
 import * as styles from "../styles/components/Header.module.scss";
 
