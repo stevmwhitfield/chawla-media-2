@@ -6,42 +6,30 @@ import logo from "../assets/chawla-media.png";
 import * as styles from "../styles/components/Header.module.scss";
 
 const Header = () => {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [isScrollDown, setIsScrollDown] = useState(false);
+  let pageWidth;
 
-  const checkSize = () => {
-    setWindowSize(window.innerWidth);
-  };
+  if (typeof window !== "undefined") {
+    pageWidth = window.innterWidth;
+  }
 
-  const checkScroll = e => {
-    if (e.deltaY > 0) {
-      setIsScrollDown(false);
-    }
-    if (e.deltaY <= 0) {
-      setIsScrollDown(true);
-    }
-  };
+  const [windowWidth, setWindowWidth] = useState(pageWidth);
 
   useEffect(() => {
-    window.addEventListener("resize", checkSize);
-    return () => {
-      window.removeEventListener("resize", checkSize);
-    };
+    const debouncedHandleResize = debounce(function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }, 1000);
+
+    window.addEventListener("resize", debouncedHandleResize);
+    return () => window.removeEventListener("resize", debouncedHandleResize);
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("wheel", checkScroll);
-    return () => {
-      window.removeEventListener("wheel", checkScroll);
-    };
-  });
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const navBtnHandler = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
-  if (windowSize < 480) {
+  if (pageWidth < 480) {
     return (
       <header id={styles.header}>
         <div className={styles.logoContainer}>
@@ -124,8 +112,6 @@ const Header = () => {
             <img src={logo} alt="Chawla Media" />
           </Link>
         </div>
-        {/* Hides nav when scrolling up --- Might remove */}
-        {/* <nav className={!isScrollDown ? styles.hidden : null}> */}
         <nav>
           <ul>
             <li>
