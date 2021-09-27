@@ -6,22 +6,46 @@ import logo from "../assets/chawla-media.png";
 import * as styles from "../styles/components/Header.module.scss";
 
 const Header = () => {
-  let pageWidth;
+  const size = useWindowSize();
 
-  if (typeof window !== "undefined") {
-    pageWidth = window.innterWidth;
-  }
+  const useWindowSize = () => {
+    const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
 
-  const [windowWidth, setWindowWidth] = useState(pageWidth);
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        const handleResize = () => {
+          setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+          });
+        };
 
-  useEffect(() => {
-    const debouncedHandleResize = debounce(function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }, 1000);
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+      }
+    }, []);
+    return windowSize;
+  };
+  // let pageWidth;
 
-    window.addEventListener("resize", debouncedHandleResize);
-    return () => window.removeEventListener("resize", debouncedHandleResize);
-  }, []);
+  // if (typeof window !== "undefined") {
+  //   pageWidth = window.innterWidth;
+  // }
+
+  // const [windowWidth, setWindowWidth] = useState(pageWidth);
+
+  // useEffect(() => {
+  //   const debouncedHandleResize = debounce(function handleResize() {
+  //     setWindowWidth(window.innerWidth);
+  //   }, 1000);
+
+  //   window.addEventListener("resize", debouncedHandleResize);
+  //   return () => window.removeEventListener("resize", debouncedHandleResize);
+  // }, []);
 
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
@@ -29,7 +53,7 @@ const Header = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
-  if (pageWidth < 480) {
+  if (size.width < 480) {
     return (
       <header id={styles.header}>
         <div className={styles.logoContainer}>
