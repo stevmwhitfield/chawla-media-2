@@ -8,6 +8,7 @@ module.exports = {
     description:
       "Chawla Media offers professional photography, editing, and content creation services in the Orlando area. Contact @chawlamedia on Instagram for bookings.",
     author: "Steven Whitfield",
+    siteUrl: "https://www.chawlamedia.com",
   },
   plugins: [
     "gatsby-plugin-advanced-sitemap",
