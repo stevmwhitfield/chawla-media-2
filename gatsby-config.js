@@ -10,6 +10,7 @@ module.exports = {
     author: "Steven Whitfield",
   },
   plugins: [
+    "gatsby-plugin-advanced-sitemap",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
@@ -36,6 +37,38 @@ module.exports = {
           "faqs",
         ],
         singleTypes: [],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.chawlamedia.com/",
+        sitemap: "https://www.chawlamedia.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "G-7LRH8MEVF4",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/404"],
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+        // Defers execution of google analytics script after page load
+        defer: false,
+        // Any additional optional fields
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        // defaults to false
+        enableWebVitalsTracking: true,
       },
     },
   ],

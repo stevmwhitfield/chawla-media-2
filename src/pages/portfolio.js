@@ -1,8 +1,8 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/Layout";
+import Head from "../components/Head";
 import PortfolioCard from "../components/PortfolioCard";
 
 import * as styles from "../styles/pages/Portfolio.module.scss";
@@ -30,7 +30,11 @@ const Portfolio = () => {
 
   return (
     <Layout>
-      <Helmet title="Portfolio | Chawla Media" />
+      <Head
+        title="Portfolio | Chawla Media"
+        description="Come see what I have created for others and what I can create for you."
+        url="https://www.chawlamedia.com/portfolio"
+      />
       <main>
         <h1>Portfolio</h1>
         <h3>Explore my previous works</h3>

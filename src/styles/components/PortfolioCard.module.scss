@@ -57,13 +57,22 @@
       font-weight: bold;
       letter-spacing: 0.1rem;
       color: #fff;
-      border: 2px solid #fff;
-      border-radius: 1.6rem;
+      // border: 2px solid #fff;
+      // border-radius: 1.6rem;
       padding: 0.25em 0.75em;
 
-      &:hover {
-        background: #fff;
-        color: #262626;
+      &:hover svg {
+        // background: #fff;
+        // color: #262626;
+        transform: translate(0.8rem, 0.2rem);
+      }
+
+      svg {
+        margin-left: 0.4rem;
+        font-size: 1.8rem;
+        color: #fff;
+        transform: translateY(0.2rem);
+        transition: 0.3s ease;
       }
     }
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
+import Head from "../components/Head";
 import ImageGallery from "../components/ImageGallery";
 
 import styles from "../styles/pages/Home.module.scss";
@@ -27,7 +27,11 @@ export const query = graphql`
 const Home = props => {
   return (
     <Layout>
-      <Helmet title="Photography, Editing, and Content Creation | Chawla Media" />
+      <Head
+        title="Photography, Editing, and Content Creation | Chawla Media"
+        description="Chawla Media offers professional photography, editing, and content creation services in the Orlando area. Contact @chawlamedia on Instagram for bookings."
+        url="https://www.chawlamedia.com"
+      />
       <main>
         <h1>Sunishth Chawla</h1>
         <h3>— Photographer | Editor | Creator —</h3>

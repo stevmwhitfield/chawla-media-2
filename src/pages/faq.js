@@ -1,9 +1,9 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import { Helmet } from "react-helmet";
 import FAQCard from "../components/FAQCard";
 
 import Layout from "../components/Layout";
+import Head from "../components/Head";
 
 const FAQ = () => {
   const data = useStaticQuery(graphql`
@@ -20,7 +20,11 @@ const FAQ = () => {
   `);
   return (
     <Layout>
-      <Helmet title="Frequently Asked Questions (FAQ) | Chawla Media" />
+      <Head
+        title="Frequently Asked Questions (FAQ) | Chawla Media"
+        description="Find the answers to some of my most commonly asked questions here."
+        url="https://www.chawlamedia.com/faq"
+      />
       <main>
         <h1>FAQ</h1>
         <h3>Commonly asked questions</h3>

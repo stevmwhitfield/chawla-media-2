@@ -1,8 +1,8 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/Layout";
+import Head from "../components/Head";
 import BookingCard from "../components/BookingCard";
 
 import * as styles from "../styles/pages/Booking.module.scss";
@@ -29,7 +29,11 @@ const Booking = () => {
 
   return (
     <Layout>
-      <Helmet title="Booking | Chawla Media" />
+      <Head
+        title="Booking | Chawla Media"
+        description="Book a photoshoot today."
+        url="https://www.chawlamedia.com/booking"
+      />
       <main>
         <h1>Available Bookings</h1>
         <h3>Let's create something together</h3>

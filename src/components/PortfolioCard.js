@@ -10,7 +10,9 @@ const PortfolioCard = ({ title, description, photoshoot, imgSrc, slug }) => {
       <div className={styles.content}>
         <h1>{title}</h1>
         <p>{description}</p>
-        <Link to={`/portfolio/${slug}`}>See More</Link>
+        <Link to={`/portfolio/${slug}`}>
+          See More <i class="fas fa-arrow-right"></i>
+        </Link>
         <h3>{photoshoot} shoot</h3>
       </div>
     </div>

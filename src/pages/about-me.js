@@ -1,15 +1,19 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 
 import * as styles from "../styles/pages/About.module.scss";
 
 import Layout from "../components/Layout";
+import Head from "../components/Head";
 import Img from "../assets/about-me/sunishth-chawla.jpg";
 
 const About = () => {
   return (
     <Layout>
-      <Helmet title="About Me | Chawla Media" />
+      <Head
+        title="About Me | Chawla Media"
+        description="Learn a bit more about the founder of Chawla Media, Sunishth Chawla."
+        url="https://www.chawlamedia.com/about-me"
+      />
       <main id={styles.main}>
         <h1>About Me</h1>
         <img src={Img} alt="Sunishth Chawla" />
