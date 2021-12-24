@@ -51,14 +51,15 @@ const Booking = () => {
           })}
         </div>
         <p className={styles.message}>
-          At the moment, due to limited availability and online resources,
-          online booking is not available at this time. Please DM{" "}
+          {/* At the moment, due to limited availability and online resources,
+          online booking is not available at this time.  */}
+          Please contact{" "}
           <a href="https://www.instagram.com/chawlamedia/" target="_blank">
-            @chawlamedia
+            bookings@chawlamedia.com
           </a>{" "}
-          on Instagram with your choice of booking. All factors will be taken
-          into consideration and prices may be slightly altered depending on
-          wants and needs for the shoot.
+          with your choice of booking. All factors will be taken into
+          consideration and prices may be slightly altered depending on wants
+          and needs for the shoot.
         </p>
         {/* <BookingForm /> */}
       </main>
